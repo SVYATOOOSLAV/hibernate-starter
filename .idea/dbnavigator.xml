@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DBNavigator.Project.DDLFileAttachmentManager">
+    <mappings />
+    <preferences />
+  </component>
+  <component name="DBNavigator.Project.DataEditorManager">
+    <record-view-column-sorting-type value="BY_INDEX" />
+    <value-preview-text-wrapping value="false" />
+    <value-preview-pinned value="false" />
+  </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
@@ -8,11 +17,31 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8f8e46bc-abda-40c4-9dbc-ac6c58fe5ae7">
-      <console name="postgresDB" type="STANDARD" schema="" session="Main" />
+      <console name="postgresDB" type="STANDARD" schema="public" session="Main"><![CDATA[Create table users(
+    id serial primary key,
+    username varchar(128) unique,
+    firstname varchar(128),
+    lastname varchar(128),
+    birth_date date,
+    role varchar(32)
+)
+
+select * from users
+
+drop if exists table users]]></console>
     </connection>
+  </component>
+  <component name="DBNavigator.Project.DatabaseEditorStateManager">
+    <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="8f8e46bc-abda-40c4-9dbc-ac6c58fe5ae7" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -509,5 +538,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>

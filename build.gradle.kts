@@ -16,6 +16,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.7.3")
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
+    implementation("org.slf4j:slf4j-reload4j:2.0.16")
 }
 
 tasks.test {
