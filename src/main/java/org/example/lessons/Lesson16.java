@@ -21,10 +21,10 @@ public class Lesson16 implements StartAble {
             // session.merge(user1); // идея такая же как с flush(), создает новый объект в сессии или возвращает существующий
             // session.isDirty(); // проверяет, есть ли в java объектах какие-либо изменения, которых нет в БД
 
-            /*"""
+            /*
              Hibernate автоматически вызовет update (при закрытии транзакции, если объект изменился),
              при этом PersistenceContext должен быть заполнен (вызван метод get для текущего объекта)
-            """*/
+            */
 
             log.info("Successfully got user with id = [{}] ", user1.getUsername());
 
