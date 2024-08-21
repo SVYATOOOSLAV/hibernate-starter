@@ -9,6 +9,7 @@ public class Lesson17 implements StartAble{
     @Override
     public void start(SessionFactory sessionFactory) {
         Company company = Company.builder()
+                .id(3)
                 .name("Amazon")
                 .build();
 
@@ -32,7 +33,7 @@ public class Lesson17 implements StartAble{
 
             //session.saveOrUpdate(user);
 
-            var testUser = session.get(User.class, 1);
+            var testUser = session.get(User.class, 5);
             lazyInitTest(testUser);
 
             session.getTransaction().commit();

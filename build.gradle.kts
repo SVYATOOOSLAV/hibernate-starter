@@ -23,6 +23,9 @@ dependencies {
 
     // Slf4j + Log4j
     implementation("org.slf4j:slf4j-reload4j:2.0.16")
+
+    // H2
+    testImplementation("com.h2database:h2:2.3.232")
 }
 
 tasks.test {

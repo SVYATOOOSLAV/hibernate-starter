@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.default_schema">test</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgres</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!-- Из объектной модели генерация таблиц
+         Update - сранивается модель и база, если что, то обновиться база
+         Create - при запуске все таблицы удаляются и заново создаются
+         Create-drop - при остановке удаляет все таблицы, при запуске удаляет все таблицы и заново создает
+         Validate - просто валидирует объектную модель и то, что есть в базе и если что-то не так, то сообщает -->
+
+    </session-factory>
+</hibernate-configuration>

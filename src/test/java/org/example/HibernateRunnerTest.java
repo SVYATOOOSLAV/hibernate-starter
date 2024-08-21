@@ -133,12 +133,12 @@ class HibernateRunnerTest {
         @Cleanup var session = sessionFactory.openSession();
 
         User user = User.builder()
-                .username("maksim4@mail.ru")
+                .username("maksim2@mail.ru")
                 .build();
 
         Profile profile = Profile.builder()
                 .language("RU")
-                .street("Morskaya 5")
+                .street("Morskaya 3")
                 .build();
 
         session.beginTransaction();
@@ -181,6 +181,37 @@ class HibernateRunnerTest {
         userChat.setUser(user);
 
         session.save(userChat);
+
+        session.getTransaction().commit();
+    }
+
+    @Test
+    public void checkHQL(){
+        @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup var session = sessionFactory.openSession();
+
+        session.beginTransaction();
+
+        // Оперируем классами, а не таблицами
+
+        var username = "maksim@mail.ru";
+        var companyName = "VK";
+        var query =
+                """
+                Select u from User u
+                Where u.username = :username
+                AND u.company.name = :companyName
+                """;
+
+//        var users = session.createQuery(query)
+//                .setParameter("username", username)
+//                .setParameter("companyName", companyName)
+//                .list();
+//
+//        System.out.println(users);
+
+        session.createQuery("Update User u set role = 'ADMIN'")
+                .executeUpdate();
 
         session.getTransaction().commit();
     }

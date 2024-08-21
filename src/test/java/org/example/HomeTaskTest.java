@@ -3,8 +3,6 @@ package org.example;
 import lombok.Cleanup;
 import org.example.homework.entity.*;
 import org.example.util.HibernateUtil;
-import org.hibernate.Session;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -150,7 +148,7 @@ public class HomeTaskTest {
 
         session.beginTransaction();
 
-        var courses = List.of(session.get(Course.class, 3), session.get(Course.class, 4));
+        var courses = List.of(session.get(Course.class, 2), session.get(Course.class, 3));
 
         session.save(trainer);
 
@@ -172,8 +170,8 @@ public class HomeTaskTest {
 
         session.beginTransaction();
 
-        var course = session.get(Course.class, 4);
-        course.setName("Java Magics");
+        var course = session.get(Course.class, 3);
+        course.setName("Java Magic");
 
         session.getTransaction().commit();
 
@@ -205,7 +203,7 @@ public class HomeTaskTest {
 
         session.beginTransaction();
 
-        var course = session.get(Course.class, 3);
+        var course = session.get(Course.class, 2);
 
         course.getTrainerCourses().forEach(trainerCourse ->
                 System.out.println(
